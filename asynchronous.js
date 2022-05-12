@@ -2,8 +2,8 @@
  * TODO(developer): Uncomment these variables before running the sample.
  */
 const subscriptionName = 'balance-notification-sub';
-const maxInProgress = 5;
-const timeout = 5;
+const maxInProgress = -1;
+const timeout = 10;
 
 // Imports the Google Cloud client library
 const {PubSub} = require('@google-cloud/pubsub');
@@ -15,7 +15,7 @@ function listenForMessages() {
   const subscriberOptions = {
     flowControl: {
       maxMessages: maxInProgress,
-      allowExcessMessages: false,
+      allowExcessMessages: true,
     },
     batching: {
       maxMessages: maxInProgress,

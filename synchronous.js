@@ -2,7 +2,7 @@
  * TODO(developer): Uncomment these variables before running the sample.
  */
 const projectId = 'projectId';
-const subscriptionName = 'balance-notification-sub';
+const subscriptionName = 'balance-sub';
 
 // Imports the Google Cloud client library. v1 is for the lower level
 // proto access.
@@ -42,7 +42,7 @@ async function synchronousPull() {
       ackIds: ackIds,
     };
 
-    // await subClient.acknowledge(ackRequest);
+    await subClient.acknowledge(ackRequest);
   }
 
   console.log('Total of messages:', response.receivedMessages.length);
